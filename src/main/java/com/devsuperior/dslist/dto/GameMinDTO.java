@@ -1,6 +1,9 @@
 package com.devsuperior.dslist.dto;
 
+import org.springframework.beans.BeanUtils;
+
 import com.devsuperior.dslist.entities.Game;
+import com.devsuperior.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -20,6 +23,15 @@ public class GameMinDTO {
 		imgUrl = entity.getImgUrl();
 		shortDescription = entity.getShortDescription();
 	}
+	public GameMinDTO(GameMinProjection projection) {
+	     this.id = projection.getId();
+	     this.title = projection.getTitle();
+	     this.year = projection.getYear();
+	     this.imgUrl = projection.getImgUrl();
+	     this.shortDescription = projection.getshortDescription();
+		
+	}
+	
 
 	public Long getId() {
 		return id;
